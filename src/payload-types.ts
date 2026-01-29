@@ -137,11 +137,9 @@ export interface Order {
   user?: (number | null) | User;
   items?:
     | {
-        product?: (number | null) | Product;
+        product?: string | null;
         quantity?: number | null;
         price?: number | null;
-        file_name?: string | null;
-        file_url?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -159,7 +157,6 @@ export interface Order {
   };
   createdAt: string;
   invoice?: (number | null) | Media;
-  files?: (number | null) | Media;
   updatedAt: string;
 }
 /**
@@ -196,6 +193,26 @@ export interface User {
       }[]
     | null;
   password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -244,26 +261,6 @@ export interface Product {
   button_text?: string | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt: string;
-  prefix?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -428,8 +425,6 @@ export interface OrdersSelect<T extends boolean = true> {
         product?: T;
         quantity?: T;
         price?: T;
-        file_name?: T;
-        file_url?: T;
         id?: T;
       };
   total?: T;
@@ -448,7 +443,6 @@ export interface OrdersSelect<T extends boolean = true> {
       };
   createdAt?: T;
   invoice?: T;
-  files?: T;
   updatedAt?: T;
 }
 /**
