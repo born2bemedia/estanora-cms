@@ -108,6 +108,26 @@ export const Orders: CollectionConfig = {
         position: "sidebar",
       },
     },
+    {
+      name: "files",
+      type: "array",
+      label: "Files",
+      fields: [
+        {
+          name: "file",
+          type: "upload",
+          relationTo: "media",
+          label: "File",
+          required: false,
+        },
+        {
+          name: "filename",
+          type: "text",
+          label: "File Name",
+          required: false,
+        },
+      ],
+    },
   ],
   hooks: {
     beforeChange: [

@@ -157,6 +157,13 @@ export interface Order {
   };
   createdAt: string;
   invoice?: (number | null) | Media;
+  files?:
+    | {
+        file?: (number | null) | Media;
+        filename?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
 }
 /**
@@ -443,6 +450,13 @@ export interface OrdersSelect<T extends boolean = true> {
       };
   createdAt?: T;
   invoice?: T;
+  files?:
+    | T
+    | {
+        file?: T;
+        filename?: T;
+        id?: T;
+      };
   updatedAt?: T;
 }
 /**
