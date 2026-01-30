@@ -46,6 +46,26 @@ export const Orders: CollectionConfig = {
           type: "number",
           required: false,
         },
+        {
+          name: "files",
+          type: "array",
+          label: "Files",
+          fields: [
+            {
+              name: "file",
+              type: "upload",
+              relationTo: "media",
+              label: "File",
+              required: false,
+            },
+            {
+              name: "filename",
+              type: "text",
+              label: "File Name",
+              required: false,
+            },
+          ],
+        },
       ],
     },
     {
@@ -107,26 +127,6 @@ export const Orders: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
-    },
-    {
-      name: "files",
-      type: "array",
-      label: "Files",
-      fields: [
-        {
-          name: "file",
-          type: "upload",
-          relationTo: "media",
-          label: "File",
-          required: false,
-        },
-        {
-          name: "filename",
-          type: "text",
-          label: "File Name",
-          required: false,
-        },
-      ],
     },
   ],
   hooks: {

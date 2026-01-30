@@ -140,6 +140,13 @@ export interface Order {
         product?: string | null;
         quantity?: number | null;
         price?: number | null;
+        files?:
+          | {
+              file?: (number | null) | Media;
+              filename?: string | null;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -157,13 +164,6 @@ export interface Order {
   };
   createdAt: string;
   invoice?: (number | null) | Media;
-  files?:
-    | {
-        file?: (number | null) | Media;
-        filename?: string | null;
-        id?: string | null;
-      }[]
-    | null;
   updatedAt: string;
 }
 /**
@@ -432,6 +432,13 @@ export interface OrdersSelect<T extends boolean = true> {
         product?: T;
         quantity?: T;
         price?: T;
+        files?:
+          | T
+          | {
+              file?: T;
+              filename?: T;
+              id?: T;
+            };
         id?: T;
       };
   total?: T;
@@ -450,13 +457,6 @@ export interface OrdersSelect<T extends boolean = true> {
       };
   createdAt?: T;
   invoice?: T;
-  files?:
-    | T
-    | {
-        file?: T;
-        filename?: T;
-        id?: T;
-      };
   updatedAt?: T;
 }
 /**
