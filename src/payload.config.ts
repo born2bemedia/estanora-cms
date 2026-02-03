@@ -38,7 +38,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   localization: {
-    locales: ["en", "de"],
+    locales: ["en", "de", "it"],
     defaultLocale: "en",
   },
   cors: {
@@ -70,7 +70,7 @@ export default buildConfig({
     }),
     deeplTranslatorPlugin({
       enabled: true,
-      fallbackLocales: ["de"],
+      fallbackLocales: ["de", "it"],
       collections: {
         policies: {
           fields: ["title", "content"],
@@ -89,7 +89,7 @@ export default buildConfig({
   ],
   email: nodemailerAdapter({
     defaultFromName: "Estanora",
-    defaultFromAddress: "noreply@estanora.com.com",
+    defaultFromAddress: "noreply@estanora.com",
     transportOptions: nodemailerSendgrid({
       apiKey: process.env.SENDGRID_API_KEY ?? "",
     }),
