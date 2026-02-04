@@ -100,7 +100,7 @@ export interface Config {
   globalsSelect: {
     'deepl-translator-config': DeeplTranslatorConfigSelect<false> | DeeplTranslatorConfigSelect<true>;
   };
-  locale: 'en' | 'de' | 'it';
+  locale: 'en' | 'de' | 'it' | 'el';
   user: User & {
     collection: 'users';
   };
